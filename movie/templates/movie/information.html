@@ -1,0 +1,38 @@
+{% extends "movie/base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'movie/css/information.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row1">
+            <img src={{img}}>
+            <h1 id="title">{{title}}</h1>
+        </div>
+
+        <div class="row2">
+            <h1 id="year"> <span class="span-customize">Release year:</span> {{year}}</h1>
+            <h1 id="rating">
+                <img id="imdb-logo" src="{% static 'movie/img/imdb-logo.png' %}">
+                <span style="margin-left: 10px; ">{{rating}}</span>
+            </h1>
+            <h1 id="director"> <span class="span-customize">Director: </span> {{director}}</h1>
+            <h1 id="summary">Summary :-</h1>
+            <p>{{summary}}</p>
+        </div>
+        <a href="{% url 'movie:index' %}" class="cta">
+            <span>Go back</span>
+            <svg width="13px" height="10px" viewBox="0 0 13 10">
+                <path d="M1,5 L11,5"></path>
+                <polyline points="8 1 12 5 8 9"></polyline>
+            </svg>
+        </a>
+    </div>
+{% endblock %}

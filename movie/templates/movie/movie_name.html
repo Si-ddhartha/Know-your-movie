@@ -1,0 +1,25 @@
+{% extends "movie/base.html" %}
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'movie/css/movie_name.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block title %}
+    Know your movie
+{% endblock %}
+
+{% block body %}
+<div class="form">
+    <form method="post" action="/information/">
+        {% csrf_token %}
+        <div class="inputs">
+            <input type="text" id="name" placeholder="Enter movie name..." name="name" required>
+            <button class="button-border" type="submit" onclick="loader();">Submit</button>
+        </div>
+    </form>
+</div>
+
+
+
+{% endblock %}
